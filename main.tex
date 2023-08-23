@@ -1,0 +1,69 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage{macros}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{Useful Formulas and Derivations}
+\author{Matt Kwiecien}
+\usepackage[parfill]{parskip}
+
+
+\begin{document}
+\maketitle
+
+
+\section{Back of the envelope}
+
+Estimating the conversion between \textbf{magnitudes and luminosity}:
+$$0.1 \textrm{ mag} \approx 10\%\textrm{ light}$$
+
+Estimating the \textbf{velocity dispersion} of cluster members:
+$$v \approx cz = (300,000 \kms)(0.01) = 3,000 \kms$$
+Thus $z\sim 0.01$ gives an approximate ``projected'' cluster.
+
+
+\section{Magnitude Derivation}
+Hipparchus grouped stars and assigned them \textbf{magnitudes}, with the the brightest being the first, and the faintest being the 6th, with 
+$$1^{st}\textrm{mag} \approx 100 \times 6^{th}\textrm{mag}$$
+Where brightness is the same as flux, so the relative difference of
+\begin{align*}
+    5\textrm{mag} \approx & 100 \times \textrm{brighter}\\
+    5\textrm{mag} + 5\textrm{mag} =  10\textrm{mag} \approx & 100 \times 100 = 100,000 \times \textrm{brighter}
+\end{align*}
+To derive the relation, we want something of the form (\textbf{REMEMBER: higher mag = FAINTER)}:
+$$
+m_1 - m_2 = x \log_{10}\left(\frac{f_1}{f_2}\right)
+$$
+Consider I have two sources: $m_1 = 5$, $m_2 = 10$.  Thus, from Hipparchus, we know that implies $f_1 \approx 100 \times f_2$. Plug this into our desired relation $x\log_{10}(100) = -5 \implies x = -5/2$
+Thus we have derived our scaling factor $x = -2.5$ and
+$$
+m_1 - m_2 = -2.5 \log_{10}\left( \frac{f_1}{f_2} \right)
+$$
+You can re-arrange now to write magnitudes only in terms of one source:
+\begin{align*}
+    m_1 & = - m_2 - 2.5\log_{10}\left( \frac{f_1}{f_2} \right) \\
+     & = - m_2 - 2.5(\log_{10}(f_1) - \log_{10}(f_2))
+\end{align*}
+And we get our final important relation:
+$$m_1 = m_{\textrm{zp}} -2.5 \log_{10}(f_1)$$
+$$
+f_1 = 10^{-\frac{2}{5}(m_1-m_{\textrm{zp}})}
+$$
+
+\section{Gravitational Lensing}
+
+\bibliographystyle{alpha}
+\bibliography{sample}
+
+\end{document}
